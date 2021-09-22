@@ -74,7 +74,7 @@ workflows:
         ignore-rules: 'DL4005,DL3008'
      - docker/publish:
         requires: [docker/hadolint]
-        image: rajeev1391/capston_P1
+        image: rajeev1391/capston_a1
         tag: latest
      - create-eks-cluster:  
         requires: [docker/publish]
