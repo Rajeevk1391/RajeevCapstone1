@@ -93,6 +93,3 @@ workflows:
      - testKucluster:
         requires: [create-rajeev-cluster]
         cluster-name: capstone
-     #- aws-eks/delete-cluster:
-        #requires: [testKucluster]
-        #cluster-name: capstone
