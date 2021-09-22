@@ -83,12 +83,12 @@ workflows:
      - docker/hadolint:
         dockerfiles: ./Dockerfile
         ignore-rules: 'DL4005,DL3008'
-     - build-docker:
+     - docker/publish:
         requires: [docker/hadolint]
         image: rajeev1391/capston_a1
         tag: latest
      - create-rajeev-cluster:  
-        requires: [build-docker]
+        requires: [docker/publish]
         cluster-name: capstone
      - testKucluster:
         requires: [create-rajeev-cluster]
