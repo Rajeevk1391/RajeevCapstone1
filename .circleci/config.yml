@@ -65,10 +65,10 @@ jobs:
             kubectl get pods
             
             # Deployment - rolling deployment 
-            kubectl apply -f ./deployment.yaml
-            kubectl apply -f ./service.yaml
-            kubectl get deployment my-frontend
-            kubectl rollout restart deployment/my-frontend
+            kubectl apply -f ./frontendapp.yml
+            kubectl apply -f ./services.yml
+            kubectl get deployment front-end-app
+            kubectl rollout restart deployment/front-end-app
             
             # Check the cluster/nodes/pods status
             sleep 20
@@ -87,10 +87,10 @@ workflows:
         requires: [docker/hadolint]
         image: rajeev1391/capston_b1
         tag: latest
-#     - create-rajeev-cluster:  
-#        requires: [docker/publish]
-#        cluster-name: capstone
-     - testKucluster:
+     - create-rajeev-cluster:  
         requires: [docker/publish]
-#        requires: [create-rajeev-cluster]
+        cluster-name: capstone
+     - testKucluster:
+#        requires: [docker/publish]
+        requires: [create-rajeev-cluster]
         cluster-name: capstone
