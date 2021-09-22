@@ -1,6 +1,6 @@
 
 # Rajeev udacity final capstone Project 
-# It is Capstone Udacity project to demonstrate implementing docker image, AWS-CLI, AWS-eks and kubernetes using Circleci pipeline.
+ It is Capstone Udacity project to demonstrate implementing docker image, AWS-CLI, AWS-eks and kubernetes using Circleci pipeline.
 
   docker: circleci/docker@1.5.0
 
