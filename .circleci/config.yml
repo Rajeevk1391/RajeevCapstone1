@@ -8,7 +8,7 @@ orbs:
   
 jobs:
             
-  create-rajeev-cluster:
+  create-eks-cluster:
     executor: aws-eks/python3
     parameters:
       cluster-name:
