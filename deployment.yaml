@@ -21,7 +21,7 @@ spec:
         app: my-frontend
     spec:
       containers:
-      - image: krajeevs/udacityp05_v1
+      - image: rajeev1391/capston:1.0
         imagePullPolicy: Always
         name: my-frontend
         ports:
