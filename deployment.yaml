@@ -21,7 +21,7 @@ spec:
         app: front-end-app
     spec:
       containers:
-      - image: rajeev1391/capston_a1
+      - image: rajeev1391/capston_b1
         imagePullPolicy: Always
         name: front-end-app
         ports:
