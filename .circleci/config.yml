@@ -80,11 +80,11 @@ jobs:
 workflows:
   default:
     jobs:
-     - lint:
+     - docker/hadolint:
         dockerfiles: ./Dockerfile
         ignore-rules: 'DL4005,DL3008'
      - build-docker:
-        requires: [lint]
+        requires: [docker/hadolint]
         image: rajeev1391/capston_a1
         tag: latest
      - create-rajeev-cluster:  
