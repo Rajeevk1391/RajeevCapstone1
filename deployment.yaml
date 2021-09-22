@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-frontend
+  name: front-end-app
   labels:
-    app: my-frontend
+    app: front-end-app
   namespace: default
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: my-frontend
+      app: front-end-app
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: my-frontend
+        app: front-end-app
     spec:
       containers:
       - image: rajeev1391/capston_a1
         imagePullPolicy: Always
-        name: my-frontend
+        name: front-end-app
         ports:
         - containerPort: 80
           protocol: TCP

@@ -8,7 +8,7 @@ orbs:
   
 jobs:
             
-  create-eks-cluster:
+  create-rajeev-cluster:
     executor: aws-eks/python3
     parameters:
       cluster-name:
@@ -80,19 +80,19 @@ jobs:
 workflows:
   default:
     jobs:
-     - docker/hadolint:
+     - lint:
         dockerfiles: ./Dockerfile
         ignore-rules: 'DL4005,DL3008'
-     - docker/publish:
-        requires: [docker/hadolint]
+     - build-docker:
+        requires: [lint]
         image: rajeev1391/capston_a1
         tag: latest
-     - create-eks-cluster:  
-        requires: [docker/publish]
+     - create-rajeev-cluster:  
+        requires: [build-docker]
         cluster-name: capstone
      - testKucluster:
-        requires: [create-eks-cluster]
+        requires: [create-rajeev-cluster]
         cluster-name: capstone
      #- aws-eks/delete-cluster:
-        #requires: [deploy-pods]
+        #requires: [testKucluster]
         #cluster-name: capstone
